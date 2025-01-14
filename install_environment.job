@@ -1,0 +1,28 @@
+#!/bin/bash -l
+#SBATCH --job-name=install_environment      # Name of Job
+#SBATCH --output=installation_log_%A.out    # File where outputs/errors will be saved
+#SBATCH --time=00:59:00                     # Time limit (hh:mm:ss)
+#SBATCH --ntasks=1                          # Number of tasks
+#SBATCH --gres=gpu:a40:1                    # Request 1 GPU
+#SBATCH --nodes=1                           # Request 1 node
+
+# Load the modules required to use Python and conda
+module purge
+module load python
+
+# Setup proxy to allow node to download packages from the web
+export http_proxy=http://proxy:80
+export https_proxy=http://proxy:80
+
+# Create a new conda environment
+conda create --name dl_env python=3.11
+
+# Activate the new environment
+conda activate dl_env
+
+# Install additional libraries
+pip install torch torchvision torchaudio
+pip install numpy pandas matplotlib
+
+# Ensure PyTorch installed correctly and can access the GPU
+python -c "import torch; print('cuda available:', torch.cuda.is_available())"
