@@ -7,16 +7,15 @@
 3. Run, debug and monitor your experiments.
 
 ## Contents
-- `example_script.py`: A simple Python script for testing your setup.
-- `submit_job.sh`: A template for submitting jobs.
-- `job_array_example.sh`: Example of running a job array.
-- `requirements.txt`: Managing dependencies.
-- `cluster_debugging.md`: Debugging common issues on the cluster.
-- `monitoring_tips.md`: Tips for monitoring your jobs.
-- `slurm_config_guide.md`: Understanding SLURM configurations.
+- `install_environment.job`: A job script to setup a conda env and install basic packages
+- `mnist_classifier.py`: A simple digit classification model
+- `run_experiment.job`: Implement this file to start training the MNIST model
 
 ## First Steps
 Make sure you already followed the steps on cluster access and authentication outlined in [our guide](https://jonaruthardt.github.io/docs/cluster_tutorial/) and can now sucessfully connect to the cluster.
+
+### Setting up the Code
+Clone/fork the repository so that you can execute files on the cluster and can configure and edit the scripts remotely (or locally).
 
 ### Setting up the Environment
 
