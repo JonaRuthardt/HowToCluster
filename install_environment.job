@@ -23,7 +23,7 @@ export http_proxy=http://proxy:80
 export https_proxy=http://proxy:80
 
 # Create a new conda environment
-conda create --name dl_env python=3.11
+conda create --name dl_env python=3.11 -y
 
 # Activate the new environment
 conda activate dl_env
